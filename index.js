@@ -26,6 +26,19 @@ class stack {
         }
         return this
     }
+
+    pop() {
+        if(this.length) {
+            let temp = this.top
+            this.top = this.top.next
+            temp.next = null
+            this.length --
+            return temp
+        } else {
+            return undefined
+        }
+
+    }
     
 }
 
@@ -33,3 +46,5 @@ const newStack = new stack(11)
 // console.log(newStack)
 console.log(newStack.push(12))
 console.log(newStack.push(14))
+console.log(newStack.pop())
+console.log(newStack)
