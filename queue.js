@@ -18,12 +18,10 @@ class Queue {
     enqueue(value) {
         const node = new Node(value)
         if(this.length === 0) {
-            console.log(1)
             this.start = node
             this.end = node
             this.length = 1
         } else {
-            console.log(2)
             this.last.next = node
             this.last = node
             this.length++
@@ -32,8 +30,26 @@ class Queue {
         return this
     }
 
+    dequeue() {
+        if(!this.length) return undefined
+        if(this.length == 1)  {
+            this.start = null 
+            this.end = null
+            this.length = 0
+            return this 
+        }
+        let temp = this.start
+        this.start = this.start.next
+        temp.next = null
+        this.length --
+        return this
+    }
+
 }
 
 const queue = new Queue(100)
 // console.log(queue)
 console.log(queue.enqueue(200))
+console.log(queue.enqueue(300))
+console.log(queue.enqueue(400))
+console.log(queue.dequeue())
