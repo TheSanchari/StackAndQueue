@@ -41,7 +41,7 @@ class Queue {
         let temp = this.start
         this.start = this.start.next
         temp.next = null
-        this.length --
+        this.length --  
         return this
     }
 

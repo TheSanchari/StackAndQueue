@@ -29,11 +29,14 @@ class stack {
 
     pop() {
         if(this.length) {
-            let temp = this.top
+            // let temp = this.top
+            console.log('this.top',this.top.value)
             this.top = this.top.next
+            console.log('this.top',this.top.value)
             temp.next = null
             this.length --
-            return temp
+            console.log('this.top',this.top.value)
+            return this
         } else {
             return undefined
         }
@@ -46,5 +49,6 @@ const newStack = new stack(11)
 // console.log(newStack)
 console.log(newStack.push(12))
 console.log(newStack.push(14))
+console.log(newStack.push(134))
 console.log(newStack.pop())
-console.log(newStack)
+console.log(JSON.stringify(newStack))
